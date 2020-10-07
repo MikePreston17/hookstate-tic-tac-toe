@@ -6,9 +6,9 @@ import { createState, useState } from '@hookstate/core'
 const length = 3;
 const initial = Array.from({ length }, () => Array.from({ length }, () => null));
 
-console.log('proto :>> ', initial);
+// console.log('proto :>> ', initial);
 const global = createState(initial);
-console.log('board :>> ', global);
+// console.log('board :>> ', global);
 
 export default () => {
 
@@ -28,7 +28,7 @@ export default () => {
     let j = 0;
     let remaining = (board.get() as any).reduce((b, n) => {
       for (let i = 0; i < n.length; i++) {
-        console.log('n', n)
+        // console.log('n', n)
         if (!n[i])
           b.push([i, j])
       }
@@ -36,7 +36,7 @@ export default () => {
       return b;
     }, [])
 
-    console.log('remaining', remaining)
+    // console.log('remaining', remaining)
 
     let picked = remaining[Math.floor(Math.random() * remaining.length)];
     return picked;
@@ -58,7 +58,7 @@ export default () => {
                   // board[x][y].set(v => v === 1 ? 0 : 1);
                   board[x][y].set(v => 1);
                   let tile = getRandomMove();
-                  console.log('getRandomMove()', tile)
+                  // console.log('getRandomMove()', tile)
                   // board[tile[0], tile[1]].set(t => 0);
                   let _x = tile[0];
                   let _y = tile[1];
